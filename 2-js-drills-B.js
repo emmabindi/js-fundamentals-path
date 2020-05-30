@@ -1,18 +1,71 @@
 // The next set of drills are a bit more difficult. I know that sometimes it might be hard to work out what is meant by the question, but I ask that you stay with it and do your best to piece it apart - sometimes it is hard to express these questions without some confusion. I am happy to give answers to some of the questions if that will help with the understanding so that you can move forward. Where a question asks for a log to screen, the simplest thing will be to log the name of the function. Most times in these questions it is not what the function does that will be important, but rather how that function sits within the object, or even within the other function.
 
 // 1. Define an object that has two keys. One will have the value of a string, and the other a function (and this function can simply log its own name to screen).
+
+baume = {
+  english: 'Tree',
+  fabFunc: function() {
+    return ('Hi!');
+  }
+}
+console.log(baume.fabFunc);
+
 // 2. Log the string to screen.
+console.log(baume.fabFunc());
+
 // 3. Log the entire function to screen.
+console.log(baume);
 // 4. Invoke the function within the object. 
+baume.fabFunc;
 // ============================================
+
 // 5. Define an object that has three keys, and each key has the value of an anonymous function. In each function log something to screen (different in each function).
 // 6. Call each function (through the object).
+
+greeting = {
+  hello: () => {
+    console.log("Guten Morgen")
+  },
+  thankyou: () => {
+    console.log("Danke")
+  },
+  please: () => {
+    console.log("Bitte")
+  }
+}
+
+greeting.hello();
+greeting.thankyou();
+greeting.please();
+
 // ============================================
 // 7. Make a function that returns an object that has two keys, one key with a string value, and the other that has an anonymous function as its value. 
 // 8. Log to screen the result of invoking this function.
+
+function Wine(type, varietal, price) {
+  this.type = type;
+  this.varietal = varietal;
+  this.price = function() {
+    return '$40';
+  }
+};
+
+let pustaLibre = new Wine('red', 'blend');
+pustaLibre.price();
+
+console.log(pustaLibre);
+
 // 9. Work out how to log to screen the value of the returned object’s string.
+console.log(pustaLibre.price());  
+
 // 10. Invoke the returned object’s function (via the first function - you will need to return the object, and then call the function within the returned object). 
-// ============================================
+
+let vino = pustaLibre;
+console.log(vino);
+console.log("-------")
+console.log(vino.price());
+
+//==========================================
 // 11. Write a function that takes a number and a function as an argument. Inside this function perform three simple calculations with the given number (the first argument), and then pass the final result to the function that is passed as the second argument.
 // 12. Call this function three times with different numbers, and a different anonymous callback function each time (perhaps each time the callback doing a different simple calculation). 
 // 13. Now write two functions that take a number as an argument, and do some very simple calculation.

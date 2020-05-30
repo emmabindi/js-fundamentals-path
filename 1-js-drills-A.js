@@ -116,9 +116,58 @@ console.log(garage[0]['color']);
 
 // =====================================
 // 17. Write a function that takes two arguments - one an object, and the other an array. Inside the function log out a value from the object, and an element from the array.
+
+function Splitter(obj, arr) {
+  console.log(Object.keys(obj));
+  console.log(arr[0]);
+}
+
+Splitter(dreamCar, favTunes)
+console.log('--------')
+
 // 18. Define four objects, one with one key, one with two keys, one with three keys, and one with four. Make the first key consistent across these objects.
+
+const aria = {
+  name: 'Aria',
+  breed: 'Rough Collie',
+  age: 4,
+  color: 'Sable Merle',
+}
+
+const buddy = {
+  name: 'Buddy',
+  breed: 'Jack Russell / Corgi',
+  age: 12,
+}
+
+const mia = {
+  name: 'Mia',
+  breed: 'Golden Retriever',
+}
+
+const ivy = {
+  name: 'Ivy',
+}
+
 // 19. Define two different arrays, with two different datatypes.
+
+let arr2 = [15,30,'Happy'];
+let arr1 = ['Carbonara', 'Orange', true]
+
 // 20. Call the function four times, once with each object, and use the arrays you made.
-// ============================================
+
+Splitter(ivy, arr1)
+console.log('--------')
+
+Splitter(aria, arr2)
+console.log('--------')
+
+// ==================================
 // 21. Write a function that takes five arguments: three strings, and two numbers.
+
+function mixup(string1, string2, string3, num1, num2) {
+  console.log(string1, string2, string3, num1, num2)
+}
 // 22. Call that function three times.
+
+mixup('Testing', 'Hola', 'Fabulous', 52, 11)
