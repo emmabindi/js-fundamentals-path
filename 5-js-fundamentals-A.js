@@ -125,16 +125,13 @@ Array.prototype.myMap = function(myCallback) {
   console.log(mapArrayNew)
 }
 
-
 mapArrayOld.myMap();
 anotherArray.myMap();
 
-
-/* How to solve:
+/* My Pseudo:
 Map iterates through an array, doing something then outputs NEW array 
 - Use a while loop with a counter 
-- create a variable to catch the output 
-
+- create an array variable to catch the output 
 */
 
 
@@ -150,6 +147,26 @@ Map iterates through an array, doing something then outputs NEW array
 // Define an object that has two keys, one called 'buy' and the other called 'sell'. These will have the value of an anonymous function that takes no arguments, and that simply returns a string. The function associated with 'buy' will return "I want to buy!!", and the other returns "I want to get out!!"
 // Define a function called originalFunction that takes two arguments, a number and an object, which you could call 'functionObject'. If the number is divisible by 2 then the function returns the functionObject's 'buy' function, and otherwise returns the 'sell' function.
 // Now call this function with a number and the object that you created as arguments, and store the result in a constant. Now work out how to get the string to display to the screen. 
+
+functionObject = {
+  buy: function() { 
+    return 'I want to buy!'
+  },
+  sell: function() {
+    return 'I want to get out!!'
+  }
+}
+function originalFunction(num, functionObject) {
+  if (num % 2 === 0) {
+    console.log(functionObject.buy());
+  } else {
+    console.log(functionObject.sell());
+  }
+}
+
+// console.log(functionObject.buy());
+(originalFunction(2, functionObject));
+(originalFunction(3, functionObject));
 
 // Next I want to get into the synchronous and asynchronous aspects of JS. Actually, most of JS works synchronously - that is, it runs each line of code in order, and waits while each line does its work. There are some things in JS that act asynchronously. These include API calls, setTimeout, and any function that handles events. But maybe it's better to see these things in action first. 
 
@@ -183,7 +200,7 @@ looper(() => {
 console.log("After looper")
 console.log("..now heading off to other parts of the program!")
 console.log("==================")
-
+*/
 // Problem 9 (asychronicity)
 // Copy and past the code below into a file, and run it.
 // Take note of the order that things are logged to the terminal. 
@@ -209,4 +226,3 @@ timeouter(() => {
 console.log("After timeouter")
 console.log("..now heading off to other parts of the program!")
 console.log("==================")
-*/
