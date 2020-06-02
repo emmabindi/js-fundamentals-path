@@ -15,16 +15,29 @@ console.log(funcObj)
 
 // 1. Here I am calling the first function. Remember that this is defined in my module, and you are calling it here. You have access to the variable provided to you in the callback. It's not a very good mystery, but what is being passed into your callback? 
 funcObj.mystery(function(x) {
-
+  console.log(x)
 })
+
+// => Pi 
 
 // 2. This function also takes a callback argument. Again, investigate what that argument is.
 funcObj.something(function(x) {
-
+  console.log(x)
 })
 
 // 3. This function takes a number and a callback. Investgate and see if you can work out what the function is doing by tinkering in the callback, which will be handed one argument. Here I haven't given the callback boilerplate, so you will need to do this yourself.
-// funcObj.mangle()
+
+let num = 5; 
+
+funcObj.mangle(num, cb);
+
+function cb() {
+  console.log(cb)
+}
+
+// funcObj.mangle(num, function() => {
+//   console.log(cb()
+// });
 
 // 4. This function takes two arguments and a callback. See if you can work out what might be happening to the first two arguments in my function by tinkering with the callback. Again, you will have to pass the appropriate arguments.
 // funcObj.complexReturn()

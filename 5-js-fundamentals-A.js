@@ -3,18 +3,140 @@
 // Define an array outside of this function. Because JS scope works differently to Ruby you will be able to use that array within the following function without passing it through as an argument. But please note that it will not be functional programming as such - but in this case if you use map a new array will be created (rather than the original being mutated).
 // Define a variable and in it store the result of arrayMultiply when called with 2, 2, and also an anonymous callback function that takes the result as an argument, and then multiplies each element in the array by that result. When you console.log this variable to screen it should produce [ 4, 8, 12 ].
 
+const arr = [1,2,3]
+
+function arrayMultiply(num1, num2, cb) {
+  // alternative:
+  // return cb(num1 * num2)
+  const sum = num1 * num2 
+  return cb(sum)
+}
+
+// nonanonymous:
+function arrayResult(sum) {
+  const multipliedArray = arr.map(function(value) {
+    return sum * value
+  })
+  return multipliedArray
+} 
+const result = arrayMultiply(2, 2, arrayResult); 
+
+console.log("Q1.: ArrayMultiply")
+console.log(result)
+
+// this is anonymous callback:
+// const result = arrayMultiply(2, 2, function(sum){
+//   console.log(sum)
+// });
+// console.log(result)
+
+
+// failed attempt:
+// const arrayMultiply = (num1, num2, function(callback)) => {
+//   console.log(callback())
+// }
+
+// arrayMultiply(() => {
+//   return num1 * num2
+// })
+
+// function callback() {
+//   num1 * num2
+// }
+
+// arrayMultiply(() => {
+//   return num1 * num2;
+// })
+
+
+
+
 // Problem 2
 // Write a function called arrayMultiplyAgain that takes a number and an array as arguments, and returns each element in the array multiplied by the number. 
 // Now write a second function called moreArrayMultiply that takes three arguments: a number, an array, and a function: (eg. num, arr, funct). Have this function return the result of number and array when called as arguments to arrayMultiplyAgain which you passed in as an argument.
 // Define a variable and in it store the result of the second function when called with 2, [1, 2, 3], and the first function you created. When you console.log this variable to screen it should produce [ 2, 4, 6 ].
 
+
+const arr5 = [1,2,3,4,5];
+let newArray = [];
+
+arr5.forEach(element => {
+  newArray.push(element * 10)
+  return newArray
+});
+
+console.log("Q2.: ArrayMultiply")
+console.log(newArray);
+
+// const arr5 = [1,2,3,4,5];
+// let num5 = 10;
+// let newArray = [];
+
+// function arrayMultiplyAgain(num5, arr5) {
+//   let newArray = arr5.forEach(element => {
+//      return element * num5;
+//   });
+//   return newArray
+// }
+
+// arrayMultiplyAgain(num5, arr5);
+// console.log(newArray)
+
+
+
+
+
 // Problem 3
 // Implement your own version of .forEach
 // Define a function that takes a callback and provides the same functionality as the .forEach function inbuilt into es6. You can do this as a function that extends the array prototype (which takes a callback function as an argument), or more simply as a function that takes an array as an argument, as well as a callback function.
 
+console.log("Q3: My forEach ")
+const arr3 = [12,15,18,20]
+
+Array.prototype.myForEach = function(cb) {
+  const length = this.length;
+  let index = 0;
+  while (index < length) {
+    console.log(this[index]) 
+    index += 1
+  }
+}
+
+arr3.myForEach((item, index) => {
+  console.log(`The item is: ${item}`)
+  console.log(`The index is: ${index}`)
+})
+
 // Problem 4
 // Implement your own version of .map
 // Define a function that takes a callback and provides the same functionality as the .map function inbuilt into es6. You can do this as a function that extends the array prototype (which takes a callback function as an argument), or more simply as a function that takes an array as an argument, as well as a callback function.
+
+const mapArrayOld = [5,10,15,20];
+const anotherArray = [52,30]
+
+Array.prototype.myMap = function(myCallback) {
+  const length = this.length;
+  let count = 0
+  let mapArrayNew = [];
+  while (count < length) {
+    mapArrayNew.push(this[count]);
+    count += 1
+  }
+  console.log(mapArrayNew)
+}
+
+
+mapArrayOld.myMap();
+anotherArray.myMap();
+
+
+/* How to solve:
+Map iterates through an array, doing something then outputs NEW array 
+- Use a while loop with a counter 
+- create a variable to catch the output 
+
+*/
+
 
 // Problem 5
 // Implement your own version of .filter
@@ -40,7 +162,7 @@
 // console.log("..now heading off to other parts of the program!")
 // console.log("==================")
 // Take note of the timing and order that things are logged.
-
+/*
 console.log("Problem 8")
 console.time('problem-8')
 const looper = (cb) => {
@@ -87,3 +209,4 @@ timeouter(() => {
 console.log("After timeouter")
 console.log("..now heading off to other parts of the program!")
 console.log("==================")
+*/
